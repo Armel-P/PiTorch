@@ -1,0 +1,15 @@
+n_inputs = 773
+
+[[layer]]
+units = 256
+activation = "leaky_relu"
+alpha = 0.01
+
+[[layer]]
+units = 64
+activation = "relu"
+init = "he"
+
+[[layer]]
+units = 3
+activation = "softmax"
