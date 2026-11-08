@@ -1,4 +1,4 @@
-n_inputs = 773
+n_inputs = 769
 
 [[layer]]
 units = 256
@@ -8,7 +8,7 @@ alpha = 0.01
 [[layer]]
 units = 64
 activation = "relu"
-init = "he"
+init = "He"
 
 [[layer]]
 units = 3
