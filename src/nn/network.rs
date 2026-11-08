@@ -3,11 +3,11 @@ use serde::{Deserialize, Serialize};
 use std::{fs, path::Path};
 
 use crate::{
+    metrics::Report,
     nn::{
         activation::Activation,
         layer::{Layer, LayerSpec},
         loss::Loss,
-        metrics::{Report}
     }
 };
 
@@ -61,6 +61,14 @@ impl Network {
             prev = s.units;
         }
         Ok(Self { layers })
+    }
+
+    pub fn n_inputs(&self) -> usize {
+        self.layers[0].w.nrows()
+    }
+
+    pub fn n_outputs(&self) -> usize {
+        self.layers.last().unwrap().w.ncols()
     }
 
     pub fn check_loss(&self, loss: Loss) -> Result<(), String> {

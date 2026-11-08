@@ -6,7 +6,7 @@ pub fn cross_entropy(out: &Array2<f32>, y: &Array2<f32>) -> f32 {
     -(y * &out.mapv(|v| (v + 1e-9).ln())).sum() / out.nrows() as f32
 }
 
-fn argmax(r: ArrayView1<f32>) -> usize {
+pub fn argmax(r: ArrayView1<f32>) -> usize {
     r.iter()
     .enumerate()
     .max_by(|a, b| a.1.total_cmp(b.1))
